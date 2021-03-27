@@ -35,7 +35,7 @@ def initialize_game_obj(): # returns a game object with randomized ladders and s
     used_nums = [None] # keeps a record of all the positions that are occupied by ladder and snake heads/butts.
     Ladders = []
     Snakes = []
-    for num in range(0,NUMBER_OF_LADDERS): # appends positions to list, which will then be assigned to class object.
+    for num in range(0,NUMBER_OF_LADDERS): # appends positions to list.
         Ladders.append(rand_choose(used_nums, False))
     for num in range(0, NUMBER_OF_SNAKES):
         Snakes.append(rand_choose(used_nums, True))
