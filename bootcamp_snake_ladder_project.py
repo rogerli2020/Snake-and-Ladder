@@ -50,9 +50,6 @@ def make_changes_to_game(GameObject, PlayerObject): # roll a die and make change
     die_val = random.randrange(1, 7)
     print(f"Dice value: {die_val}")
 
-    if die_val == 6 and PlayerObject.CurrentState != "RoamFree": # once the first 6 is obtained, change state to RoamFree.
-        PlayerObject.CurrentState = "RoamFree"
-
     msg = None # msg variable helps the main function to know if player encountered ladder/snake so the program can print corresponding statement.
     if PlayerObject.CurrentState == "RoamFree":
         new_pos = PlayerObject.CurrentPosition + die_val
@@ -66,6 +63,9 @@ def make_changes_to_game(GameObject, PlayerObject): # roll a die and make change
                 msg = "snaked"
         if new_pos <= 100: # this helps make sure that new_pos will never exceed 100.
             PlayerObject.CurrentPosition = new_pos
+
+    if die_val == 6 and PlayerObject.CurrentState != "RoamFree": # once the first 6 is obtained, change state to RoamFree.
+        PlayerObject.CurrentState = "RoamFree"
 
     return msg
 
